@@ -6,7 +6,7 @@ You can use this to quickly get started with minimal setup.
 # Downloading
 Open your command prompt to the directory you wish to clone this project.  
 Type the following:  
-`git clone https://github.com/SubstituteR/ArkServerAPI-Template.git`  
+`git clone https://github.com/SubstituteR/ArkServerAPI-Template.git --recursive`  
 Open the solution with Visual Studio and everything should be already setup and ready for development.
 
 # Requirements
