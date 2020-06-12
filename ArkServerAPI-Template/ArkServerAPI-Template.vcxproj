@@ -60,8 +60,10 @@
       <PreprocessorDefinitions>NDEBUG;ARKSERVERAPITEMPLATE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>..\ARK-Server-API\version\Core\Public;.\;.\Plugin;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ARK-Server-API\version\Core\Public;.\;.\Plugin;.\Helpers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <DisableSpecificWarnings>
+      </DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -82,8 +84,10 @@
       <PreprocessorDefinitions>DEBUG_PLUGIN;NDEBUG;ARKSERVERAPITEMPLATE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>..\ARK-Server-API\version\Core\Public;.\;.\Plugin;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ARK-Server-API\version\Core\Public;.\;.\Plugin;.\Helpers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <DisableSpecificWarnings>
+      </DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -99,10 +103,13 @@
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">PLUGIN_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <ClCompile Include="Plugin\init.cpp" />
+    <ClCompile Include="Plugin\plugin.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Helpers\singleton.h" />
     <ClInclude Include="includes.h" />
     <ClInclude Include="Plugin\init.h" />
+    <ClInclude Include="Plugin\plugin.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -16,12 +16,18 @@
     <Filter Include="Source Files\Plugin">
       <UniqueIdentifier>{a34569a3-ce56-47be-a52c-5e01d1fd888d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Helpers">
+      <UniqueIdentifier>{866c0ee1-2fd5-4c41-bcb3-6f2a7c7a56f9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Plugin\init.cpp">
+      <Filter>Source Files\Plugin</Filter>
+    </ClCompile>
+    <ClCompile Include="Plugin\plugin.cpp">
       <Filter>Source Files\Plugin</Filter>
     </ClCompile>
   </ItemGroup>
@@ -31,6 +37,12 @@
     </ClInclude>
     <ClInclude Include="includes.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Plugin\plugin.h">
+      <Filter>Source Files\Plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="Helpers\singleton.h">
+      <Filter>Source Files\Helpers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
