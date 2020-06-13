@@ -7,17 +7,20 @@
 #include <API/ARK/Ark.h>
 
 /* Macro to add a hook easily. */
-#define AddHook(functionName, hookName) \
-ArkApi::GetHooks().SetHook(functionName, &Hook_ ## hookName, &hookName ## _original);
+#define SET_HOOK(functionName, hookName) \
+ArkApi::GetHooks().SetHook(functionName, &Hook_ ## hookName, &hookName ## _original)
 /* Macro to remove a hook easily. */
-#define RemoveHook(functionName, hookName) \
-ArkApi::GetHooks().DisableHook(functionName, &Hook_ ## hookName);
+#define DISABLE_HOOK(functionName, hookName) \
+ArkApi::GetHooks().DisableHook(functionName, &Hook_ ## hookName)
 /* Shortcut */
-#define Hooks \
+#define HOOKS \
 ArkApi::GetHooks()
 /* Shortcut */
-#define Commands \
+#define COMMANDS \
 ArkApi::GetCommands()
 /* Shortcut */
-#define ApiUtils \
+#define API_UTILS \
 ArkApi::GetApiUtils()
+/* Shortcut */
+#define LOG \
+Log::GetLog()

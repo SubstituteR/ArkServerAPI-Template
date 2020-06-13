@@ -18,16 +18,19 @@ BOOL Load()
 {
 	Log::Get().Init("Test Plugin");
 	ArkApi::GetHooks().SetHook("UPrimalLocalProfile.ShouldUploadToS3", &Hook_UseS3, &UseS3_original);
-	AddHook("UPrimalLocalProfile.ShouldUploadToS3", UseS3);
+	SET_HOOK("UPrimalLocalProfile.ShouldUploadToS3", UseS3);
 	Log::GetLog()->log(spdlog::level::info, "Test Plugin Loaded!");
 #if DEBUG_PLUGIN
 	Log::GetLog()->log(spdlog::level::info, "Debugging is enabled...");
+
+	LOG->info("");
+
 #endif
 	return TRUE;
 }
 
 BOOL Unload()
 {
-	RemoveHook("UPrimalLocalProfile.ShouldUploadToS3", UseS3);
+	DISABLE_HOOK("UPrimalLocalProfile.ShouldUploadToS3", UseS3);
 	return TRUE;
 }
