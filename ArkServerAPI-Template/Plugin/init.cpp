@@ -9,14 +9,16 @@
 #include <Logger/Logger.h>
 #include <Tools.h>
 #include <singleton.h>
+#include <macros.h>
 
 DECLARE_HOOK(UseS3, bool, UPrimalLocalProfile*);
-bool EnableS3(UPrimalLocalProfile* _this) { return 1; }
+bool Hook_UseS3(UPrimalLocalProfile* _this) { return 1; }
 
 BOOL Load()
 {
 	Log::Get().Init("Test Plugin");
-	ArkApi::GetHooks().SetHook("UPrimalLocalProfile.ShouldUploadToS3", &EnableS3, &UseS3_original);
+	ArkApi::GetHooks().SetHook("UPrimalLocalProfile.ShouldUploadToS3", &Hook_UseS3, &UseS3_original);
+	AddHook("UPrimalLocalProfile.ShouldUploadToS3", UseS3);
 	Log::GetLog()->log(spdlog::level::info, "Test Plugin Loaded!");
 #if DEBUG_PLUGIN
 	Log::GetLog()->log(spdlog::level::info, "Debugging is enabled...");
@@ -26,6 +28,6 @@ BOOL Load()
 
 BOOL Unload()
 {
-	ArkApi::GetHooks().DisableHook("UPrimalLocalProfile.ShouldUploadToS3", &EnableS3);
+	RemoveHook("UPrimalLocalProfile.ShouldUploadToS3", UseS3);
 	return TRUE;
 }

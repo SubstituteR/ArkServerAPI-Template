@@ -44,5 +44,8 @@
     <ClInclude Include="Helpers\singleton.h">
       <Filter>Source Files\Helpers</Filter>
     </ClInclude>
+    <ClInclude Include="Helpers\macros.h">
+      <Filter>Source Files\Helpers</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
